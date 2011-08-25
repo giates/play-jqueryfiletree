@@ -10,7 +10,7 @@ Point the browser on http://localhost:9000
 
 You should be able to navigate through public folders & files
 
-To change the base folder open app/controllers/Application.java and modify BASE_DIR on content action.
+To change the base folder open app/controllers/Application.java and modify BASE_DIR on action 'content'.
 
 Have fun !
 
