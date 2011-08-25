@@ -1,0 +1,23 @@
+<ul class="jqueryFileTree" style="display: none;">
+	#{list items:dirNames, as:'dir'}
+	    #{set dirName:dir.split('/').last()/}
+	    <li class="directory collapsed">
+    	    <a href="#" rel="${dir}/">
+	            ${dirName}
+    	    </a>
+    	</li>  
+	#{/list}
+	
+	#{list items:fileNames, as:'file'}
+	    #{set fileName:file.split('/').last()/}
+	    #{set extension:''/}
+	    #{if fileName.split('\\.').size() > 0}
+	      #{set extension:fileName.split('\\.').last()/}
+	    #{/if}
+        <li class="file ext_${extension}">
+            <a href="#" rel="${file}">
+                ${fileName}
+            </a>
+        </li>
+	#{/list}
+</ul>
