@@ -23,6 +23,7 @@ public class Application extends Controller {
         String[] dirNames = new String[0];
         String[] files = new String[0];
         final String BASE_DIR = Play.applicationPath.getAbsolutePath() + "/public";
+        String full_dir = "";
         
         if (dir == null || dir.equals("")) {
             dir = "/";
@@ -43,8 +44,10 @@ public class Application extends Controller {
                 e.printStackTrace();
             }
 
-            if (new File(BASE_DIR + dir).exists()) {
-                files = new File(BASE_DIR + dir).list(new FilenameFilter() {
+            full_dir = BASE_DIR + dir;
+
+            if (new File(full_dir).exists()) {
+                files = new File(full_dir).list(new FilenameFilter() {
                     public boolean accept(File dir, String name) {
                         return name.charAt(0) != '.';
                     }
@@ -54,14 +57,14 @@ public class Application extends Controller {
                 
                 // All folders
                 for (String file : files) {
-                    if (new File(BASE_DIR + dir, file).isDirectory()) {
+                    if (new File(full_dir, file).isDirectory()) {
                         dirNames = (String[]) ArrayUtils.add(dirNames, dir + file);                        
                     }
                 }
                 
                 // All files
                 for (String file : files) {
-                    if (!new File(BASE_DIR + dir, file).isDirectory()) {
+                    if (!new File(full_dir, file).isDirectory()) {
                         fileNames = (String[]) ArrayUtils.add(fileNames, dir + file);
                     }
                 }
