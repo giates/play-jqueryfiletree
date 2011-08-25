@@ -1,0 +1,16 @@
+Simple example with Play Framework using jqueryfiletree plugin http://abeautifulsite.net/blog/2008/03/jquery-file-tree/
+
+Using Play 1.2.3:
+
+cd play-jqueryfiletree
+play run
+
+Point the browser on http://localhost:9000
+
+You should be able to navigate through public folders & files
+
+To change the base folder open app/controllers/Application.java and modify BASE_DIR on content action.
+
+Have fun !
+
+Tex
